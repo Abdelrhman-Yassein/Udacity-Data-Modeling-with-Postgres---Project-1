@@ -34,14 +34,14 @@ log_data/2018/11/2018-11-13-events.json
 ```
 And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.
 
-![log-data](images\log-data.png)
+![log-data](https://raw.githubusercontent.com/Abdelrhman-Yassein/Udacity-Data-Modeling-with-Postgres/main/images/log-data.png)
 
 
 ## Database Schema
 The schema used for this exercise is the Star Schema: 
 There is one main fact table containing all the measures associated to each event (user song plays), 
 and 4 dimentional tables, each with a primary key that is being referenced from the fact table.
-![Star-Schema](images\Project-Data-Modeling-with-Postgres-Star-Schema.png)
+![Star-Schema](https://raw.githubusercontent.com/Abdelrhman-Yassein/Udacity-Data-Modeling-with-Postgres/main/images/Project-Data-Modeling-with-Postgres-Star-Schema.png)
 #### Fact Table
 **songplays** 
 ```
