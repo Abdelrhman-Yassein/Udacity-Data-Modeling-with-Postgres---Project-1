@@ -6,6 +6,16 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+     """_summary_
+        process_song_file 
+        1 - extract Song Information (song_id,title,artist_id,year,duration) To Load to Song Table
+        2 - extract artist Information (artist_id,artist_name,artist_location,artist_latitude,artist_longitude)
+            To Load to artist Table
+
+        Args:
+            cur (object): psycopg2.cursor Object to execute Query
+            filepath (String): Songs Dataset File Path
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -20,6 +30,15 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+     """_summary_
+        1 - Convert timestamp column to datetime
+        2 -Extract time information (timestamp,hour, day, week,month,year, day name) to load to time table
+        3 - extract user Information ('userId','firstName','lastName','gender','level')
+            To Load to User Table
+        Args:
+            cur (object): psycopg2.cursor Object to execute Query
+            filepath (String): Songs Dataset File Path
+    """
     # open log file
     df =pd.read_json(filepath,lines=True)
 
@@ -64,6 +83,16 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+      """_summary_
+        get all files matching extension from directory
+        get total number of files found
+        iterate over files and process
+        Args:
+            cur (object): psycopg2.cursor Object to execute Query
+            conn (object): psycopg2.cursor Object Connection To database
+            filepath (String): Songs Dataset File Path
+            func (function): function to each file
+      """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -83,8 +112,7 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
-    conn = psycopg2.connect(
-        "host=127.0.0.1 dbname= user= password=")
+    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
     process_data(cur, conn, filepath='data/song_data', func=process_song_file)
