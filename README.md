@@ -126,4 +126,7 @@ Files used on the project:
 
 8 -  Run test.ipynb , to show data.
 
+## Author
+
+######  **Abdelrhman Yassein  :**  [LinkedIn](https://www.linkedin.com/in/Abdelrhman-Yassein/) - [GitHub](https://github.com/Abdelrhman-Yassein?tab=repositories)
 
